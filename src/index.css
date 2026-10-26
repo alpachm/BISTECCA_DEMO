@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode: `dark:` variants activate when a `.dark`
+   ancestor is present (e.g. <html class="dark">). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light mode (default) design tokens */
+:root {
+  color-scheme: light;
+
+  --bg-color: #FFFFFF;
+  --surface-color: #F8F8F8;
+  --text-primary: #0B0707;
+  --text-secondary: #524B4B;
+  --border-color: #E5E1E1;
+  --primary: #A61816;
+  --primary-hover: #821311;
+  --accent: #B29772;
+}
+
+/* Dark mode design tokens */
+.dark {
+  color-scheme: dark;
+
+  --bg-color: #0E0B0B;
+  --surface-color: #181313;
+  --text-primary: #F4F2F2;
+  --text-secondary: #A19A9A;
+  --border-color: #282020;
+  --primary: #A61816;
+  --primary-hover: #C82320;
+  --accent: #B29772;
+}
+
+/* Map design tokens to Tailwind utility colors so they can be referenced as
+   bg-background, bg-surface, text-primary-text, text-secondary-text,
+   border-border-color, bg-primary, hover:bg-primary-hover, text-accent. */
+@theme inline {
+  --color-background: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-primary-text: var(--text-primary);
+  --color-secondary-text: var(--text-secondary);
+  --color-border-color: var(--border-color);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+}
+
+/* Global defaults */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
