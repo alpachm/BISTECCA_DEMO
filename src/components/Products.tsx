@@ -201,7 +201,7 @@ function ProductCard({ product }: ProductCardProps) {
         />
 
         {product.badge ? (
-          <span className="absolute left-3 top-3 rounded-sm bg-primary px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+          <span className="absolute left-2 top-2 rounded-sm bg-primary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-xs">
             {product.badge}
           </span>
         ) : null}
@@ -225,11 +225,11 @@ function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Product info */}
-      <div className="flex flex-1 flex-col gap-1 p-4">
-        <p className="text-xs font-semibold uppercase tracking-wider text-secondary-text">
+      <div className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-secondary-text sm:text-xs">
           {product.category}
         </p>
-        <h3 className="text-base font-semibold text-primary-text">
+        <h3 className="text-sm font-semibold text-primary-text sm:text-base">
           {product.name}
         </h3>
         <div className="mt-auto flex items-center gap-1 pt-2 text-sm">
@@ -241,13 +241,13 @@ function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Pricing / action footer */}
-      <div className="flex items-center justify-between gap-3 border-t border-border-color p-4">
-        <span className="text-lg font-bold text-primary-text">
+      <div className="flex items-center justify-between gap-2 border-t border-border-color p-3 sm:gap-3 sm:p-4">
+        <span className="text-base font-bold text-primary-text sm:text-lg">
           ${product.price.toFixed(2)}
         </span>
         <button
           type="button"
-          className="rounded-sm bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="rounded-sm bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-4"
         >
           Añadir
         </button>
@@ -392,7 +392,7 @@ export default function Products() {
         </div>
 
         {/* Product grid */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
           {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
