@@ -17,6 +17,8 @@ export interface HeaderProps {
   navItems?: NavItem[];
   /** Called when a search is submitted with the current query. */
   onSearch?: (query: string) => void;
+  /** Called when the user clicks the cart button to open the cart drawer. */
+  onCartOpen?: () => void;
 }
 
 const DEFAULT_NAV_ITEMS: NavItem[] = [
@@ -71,6 +73,7 @@ export default function Header({
   cartCount = 3,
   navItems = DEFAULT_NAV_ITEMS,
   onSearch,
+  onCartOpen,
 }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -177,6 +180,7 @@ export default function Header({
               {/* Cart */}
               <button
                 type="button"
+                onClick={onCartOpen}
                 aria-label={`Carrito, ${cartCount} ${
                   cartCount === 1 ? "artículo" : "artículos"
                 }`}
